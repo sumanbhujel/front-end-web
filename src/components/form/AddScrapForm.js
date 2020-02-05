@@ -1,8 +1,46 @@
 import React, { Component } from 'react'
 import '../css/form.css';
-
+import axios from 'axios';
 
 export default class AddScrapForm extends Component {
+
+    state = {
+        //image: 'image',
+        scraptype: '',
+        description: '',
+        location: '',
+    // userid: '123',
+        isAddSuccess: false
+    }
+
+    handleChange = (e) => {
+        this.setState(
+            { [e.target.name]: e.target.value }
+        )
+    }
+
+    addScrap = () => {
+        const data = {
+        // image:this.state.image,
+            scrapType: this.state.scraptype,
+            description: this.state.description,
+            location: this.state.location,
+            //userId:this.state.userid,
+        }
+        console.log(data);
+
+        axios.post("http://localhost:9000/api/scrap", data).then((response) => {
+            
+            this.setState({
+                scraptype: '',
+                description: '',
+                location: '',
+                isAddSuccess: true
+            });
+        }).catch((err) => console.log(err));
+
+    }
+
 
     render() {
         return (
