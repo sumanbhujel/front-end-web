@@ -1,10 +1,53 @@
 import React from 'react';
 import '../css/form.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import {FormText} from 'reactstrap'
 
-
 class SignUpForm extends React.Component {
+
+    state = {
+        fullname: '',
+        address: '',
+        email: '',
+        mobilenumber: '',
+        password: '',
+        gender: '',
+        isRegistered: false
+    }
+
+    handleChange = (e) => {
+        this.setState(
+            { [e.target.name]: e.target.value }
+        )
+    }
+
+    registerData = () => {
+        const data = {
+            fullName: this.state.fullname,
+            address: this.state.address,
+            email: this.state.email,
+            mobileNumber: this.state.mobilenumber,
+            password: this.state.password,
+            gender: this.state.gender
+        }
+        console.log(data);
+
+        axios.post("http://localhost:9000/api/signup", data).then((response) => {
+            
+            this.setState({
+                fullname: '',
+                address: '',
+                email: '',
+                mobilenumber: '',
+                password: '',
+                gender: '',
+                isRegistered: true
+            });
+        }).catch((err) => console.log(err));
+
+    }
 
     render() {
     
