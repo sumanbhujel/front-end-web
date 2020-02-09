@@ -24,6 +24,7 @@ function App() {
             <Route path="/addscrap" component={AddScrapForm} />
             <Route path="/viewscrap" component={ScrapData} />
             <Route path="/scrapupdate/:id" exact component={EditScrap} />
+            <Route path="/singledata/:id" exact component={SingleData} />
           </Switch>
 
         </header>
