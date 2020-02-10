@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import '../css/form.css';
+import './css/form.css';
 
 export default class SingleData extends Component {
 
@@ -16,7 +16,7 @@ export default class SingleData extends Component {
 
     render() {
         return (
-            <div className="teacher">
+            <div className="box">
                 Scrap Data by Id
                 <p>{this.props.match.params.id}</p>
                 <p>Scrap Type: {this.state.scrap_data.scrapType}</p>

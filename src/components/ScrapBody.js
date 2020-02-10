@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import UserHeader from './UserHeader';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import './css/form.css';
@@ -14,7 +13,7 @@ export default class ScrapBody extends Component {
     render() {
         return (
             <div>
-                <UserHeader />
+            
                 <div className="box">
 
                     <h1>{this.props.scraptype}</h1>

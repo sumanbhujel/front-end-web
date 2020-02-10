@@ -4,12 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
 import SignUpForm from './components/form/SignUpForm';
 import LoginForm from './components/form/LoginForm';
-import UserDashboard from './components/UserDashboard';
 import Home from './components/Home';
 import AddScrapForm from './components/form/AddScrapForm';
 import ScrapData from './components/ScrapData';
-import EditScrap from './components/form/EditSrap';
 import SingleData from './components/SingleData';
+import EditScrap from './components/form/EditScrap';
 
 
 function App() {

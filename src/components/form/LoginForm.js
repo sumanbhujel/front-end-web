@@ -3,7 +3,7 @@ import '../css/form.css';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 
-import {FormText} from 'reactstrap'
+import { FormText } from 'reactstrap'
 
 class LoginForm extends React.Component {
 
@@ -25,39 +25,40 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         }
-        axios.post("http://localhost:9000/api/login", data)
-            .then((response) => {
-                localStorage.setItem('token', response.data.token);
-                this.setState({ isloggedIn: true }).catch((err) => console.log(err.response))
-                this.setState({ email: '', password: '' })
-
+        axios.post("http://localhost:7000/login", data).then((response) => {
+            localStorage.setItem('token', response.data.token);
+            this.setState({
+                email: '',
+                password: '',
+                isloggedIn: true
             });
+        }).catch((err) => console.log(err.response));
     }
 
     render() {
         if (this.state.isloggedIn === true) {
-            return <Redirect to='/userdashboard' />
-        } 
-            return (<section>
-                <form>
-                    <h1>Login Form</h1>
-                    <fieldset>
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" value={this.state.email}
-                            onChange={this.handleChange} required />
+            return <Redirect to='/addscrap' />
+        }
+        return (<section>
+            <form>
+                <h1>Login Form</h1>
+                <fieldset>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value={this.state.email}
+                        onChange={this.handleChange} required />
 
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" value={this.state.password}
-                            onChange={this.handleChange} required />
-                    </fieldset>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" value={this.state.password}
+                        onChange={this.handleChange} required />
+                </fieldset>
 
-                    <button className="button1" onClick={this.UserLogin}>Login</button>
-                    <FormText>Not yet a user? <Link to='/signupform'> Sign Up here!</Link></FormText>
-                </form>
-            </section>
+                <button className="button1" onClick={this.UserLogin}>Login</button>
+                <FormText>Not yet a user? <Link to='/signupform'> Sign Up here!</Link></FormText>
+            </form>
+        </section>
 
-            );
-    
+        );
+
 
 
     }
