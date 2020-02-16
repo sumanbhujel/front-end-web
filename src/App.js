@@ -6,7 +6,9 @@ import SignUpForm from './components/form/SignUpForm';
 import LoginForm from './components/form/LoginForm';
 import Home from './components/Home';
 import AddScrapForm from './components/form/AddScrapForm';
+import AddFeedbackForm from './components/form/AddFeedbackForm';
 import ScrapData from './components/ScrapData';
+import FeedbackData from './components/FeedbackData';
 import SingleData from './components/SingleData';
 import EditScrap from './components/form/EditScrap';
 
@@ -24,6 +26,8 @@ function App() {
             <Route path="/viewscrap" component={ScrapData} />
             <Route path="/scrapupdate/:id" exact component={EditScrap} />
             <Route path="/singledata/:id" exact component={SingleData} />
+            <Route path="/addfeedback" component={AddFeedbackForm} />
+            <Route path="/viewfeedback" component={FeedbackData} />
           </Switch>
 
         </header>
