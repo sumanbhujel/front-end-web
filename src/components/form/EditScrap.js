@@ -38,10 +38,17 @@ export default class EditScrap extends Component {
         }
         console.log(data);
 
-        axios.put("http://localhost:9000/api/scrap/" + this.props.match.params.id, data);
+        axios.put("http://localhost:9000/api/scrap/" + this.props.match.params.id, data).then((response) => {
+            this.setState({ 
+                isUpdateSuccess: true
+            });
+        }).catch((err) => console.log(err));;
     }
 
     render() {
+        if (this.state.isUpdateSuccess === true) {
+            alert(" Successfully Updated");
+        }
         return (
             <div className="App">
 

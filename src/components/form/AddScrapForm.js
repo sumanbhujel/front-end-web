@@ -43,6 +43,10 @@ export default class AddScrapForm extends Component {
 
 
     render() {
+
+        if (this.state.isAddSuccess === true) {
+            alert("Detail Added Successfully");
+        }
         return (
             <div className="App">
             
