@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import '../css/form.css';
+import axios from 'axios';
 
-export default class AddScrapForm extends Component {
+export default class AddFeedbackForm extends Component {
 
     state = {
         emailid: '',
         message: '',
-        location: '',
         isAddSuccess: false
     }
 
@@ -16,7 +16,7 @@ export default class AddScrapForm extends Component {
         )
     }
 
-    addScrap = () => {
+    addFeedback = () => {
         const data = {
 
             emailid: this.state.emailid,
@@ -32,6 +32,7 @@ export default class AddScrapForm extends Component {
                 message: '',
                 isAddSuccess: true
             });
+
         }).catch((err) => console.log(err));
     }
 
@@ -41,22 +42,18 @@ export default class AddScrapForm extends Component {
             alert("Detail Added Successfully");
         }
         return (
-            <div className="App">
-
+            <div>
                 <form>
-                    <h1>Add Scrap</h1>
+                    <h1>Give Feedback</h1>
                     <fieldset>
                         <label for="emailid">Email:</label>
                         <input type="text" name="emailid" value={this.state.emailid} onChange={this.handleChange} required />
 
                         <label for="text">Message:</label>
                         <input type="text" name="message" value={this.state.message} onChange={this.handleChange} required />
-
                     </fieldset>
-
-                    <button className="button1">Send Feedback</button>
+                    <button className="button1" onClick={this.addFeedback}>Send Feedback</button>
                 </form>
-
             </div>
         )
     }

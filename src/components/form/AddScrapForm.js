@@ -9,7 +9,7 @@ export default class AddScrapForm extends Component {
         scraptype: '',
         description: '',
         location: '',
-    // userid: '123',
+        // userid: '123',
         isAddSuccess: false
     }
 
@@ -21,7 +21,7 @@ export default class AddScrapForm extends Component {
 
     addScrap = () => {
         const data = {
-        // image:this.state.image,
+            // image:this.state.image,
             scrapType: this.state.scraptype,
             description: this.state.description,
             location: this.state.location,
@@ -30,7 +30,7 @@ export default class AddScrapForm extends Component {
         console.log(data);
 
         axios.post("http://localhost:9000/api/scrap", data).then((response) => {
-            
+
             this.setState({
                 scraptype: '',
                 description: '',
@@ -48,8 +48,7 @@ export default class AddScrapForm extends Component {
             alert("Detail Added Successfully");
         }
         return (
-            <div className="App">
-            
+            <div>
                 <form>
                     <h1>Add Scrap</h1>
                     <fieldset>
@@ -60,7 +59,7 @@ export default class AddScrapForm extends Component {
                         <input type="text" name="description" value={this.state.description} onChange={this.handleChange} required />
 
                         <label for="text">Location:</label>
-                        <input type="text"name="location" value={this.state.location}  onChange={this.handleChange} required />
+                        <input type="text" name="location" value={this.state.location} onChange={this.handleChange} required />
                     </fieldset>
 
                     <button className="button1" onClick={this.addScrap}>Add</button>

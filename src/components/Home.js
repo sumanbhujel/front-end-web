@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Header from './Header'
+import Navbar from './Navbar'
+// import Header from './Header'
+// import Example from './form/Example'
 
 export default class Home extends Component {
     render() {
         return (
             <div>
-                <Header/>          
+                <Navbar/>   
             </div>
         )
     }

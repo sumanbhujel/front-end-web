@@ -16,7 +16,7 @@ export default class FeedbackData extends Component {
 
     render() {
         const mydata11 = this.state.mydata.map(feedbackList => {
-            return <FeedbackBody emailid={feedbackList.emailId} message={feedbackList.message}  id={feedbackList._id} />
+            return <FeedbackBody emailid={feedbackList.emailid} message={feedbackList.message}  id={feedbackList._id} />
         });
 
         return (

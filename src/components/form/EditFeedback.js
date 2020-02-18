@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/form.css';
 import axios from 'axios';
 
-export default class EditScrap extends Component {
+export default class EditFeedback extends Component {
 
     state = {
         emailid: '',
@@ -18,9 +18,9 @@ export default class EditScrap extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:9000/api/scrap/" + this.props.match.params.id).then(res => {
+        axios.get("http://localhost:9000/api/feedback/" + this.props.match.params.id).then(res => {
             this.setState({
-                emailid: res.data.emailId,
+                emailid: res.data.emailid,
                 message: res.data.message,
                 user_data: res.data
             });
@@ -50,7 +50,7 @@ export default class EditScrap extends Component {
             <div className="App">
 
                 <form>
-                    <h1>Update Scrap</h1>
+                    <h1>Edit Feedback</h1>
                     <fieldset>
                         <label for="emailid">Email:</label>
                         <input type="text" name="emailid" value={this.state.user_data.emailid} onChange={this.handleChange} required />

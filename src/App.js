@@ -11,6 +11,7 @@ import ScrapData from './components/ScrapData';
 import FeedbackData from './components/FeedbackData';
 import SingleData from './components/SingleData';
 import EditScrap from './components/form/EditScrap';
+import EditFeedback from './components/form/EditFeedback';
 
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
             <Route path="/loginform" component={LoginForm} />
             <Route path="/addscrap" component={AddScrapForm} />
             <Route path="/viewscrap" component={ScrapData} />
-            <Route path="/scrapupdate/:id" exact component={EditScrap} />
+            <Route path="/editscrap/:id" exact component={EditScrap} />
             <Route path="/singledata/:id" exact component={SingleData} />
             <Route path="/addfeedback" component={AddFeedbackForm} />
             <Route path="/viewfeedback" component={FeedbackData} />
+            <Route path="/editfeedback/:id" exact component={EditFeedback} />
           </Switch>
 
         </header>

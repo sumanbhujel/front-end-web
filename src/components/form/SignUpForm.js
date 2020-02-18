@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/form.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import {FormText} from 'reactstrap'
 
 class SignUpForm extends React.Component {
@@ -57,9 +56,8 @@ class SignUpForm extends React.Component {
         return (
             <section>
                 <form>
-                    <h1>Sign Up</h1>
+                    <h1>Registration</h1>
                     <fieldset>
-                        <legend><span class="number">1</span>Your basic info</legend>
                         <label for="name">Name:</label>
                         <input type="text" name="fullname" value={this.state.fullname}
                             onChange={this.handleChange} required />
@@ -73,7 +71,7 @@ class SignUpForm extends React.Component {
                             onChange={this.handleChange} required />
 
                         <label for="mobilenumber">Mobile Number:</label>
-                        <input type="text"  name="mobilenumber" value={this.state.mobilenumber}
+                        <input type="number"  name="mobilenumber" value={this.state.mobilenumber}
                             onChange={this.handleChange} required />
 
                         <label for="password">Password:</label>
